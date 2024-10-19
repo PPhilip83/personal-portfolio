@@ -1,36 +1,28 @@
-import { Component, ElementRef, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy } from '@angular/core';
+
+declare var VANTA: any;
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
 })
-export class AboutComponent implements AfterViewInit {
-  constructor(private el: ElementRef) {}
+export class AboutComponent implements AfterViewInit, OnDestroy {
+  private vantaEffect: any;
+
+  constructor(private elementRef: ElementRef) {}
 
   ngAfterViewInit(): void {
-    this.createObserver();
+    this.vantaEffect = VANTA.NET({
+      el: this.elementRef.nativeElement,
+      color: 0x141e30,
+      backgroundColor: 0x243b55,
+      points: 12.0,
+      maxDistance: 20.0,
+    });
   }
 
-  createObserver() {
-    const options = {
-      root: null,
-      threshold: 0.2,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.animateSection();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    observer.observe(this.el.nativeElement);
-  }
-
-  animateSection() {
-    this.el.nativeElement.classList.add('animate-section');
+  ngOnDestroy(): void {
+    if (this.vantaEffect) this.vantaEffect.destroy();
   }
 }
