@@ -1,6 +1,23 @@
 .page-content {
-    min-height: calc(100vh - 120px);  // Adjust to the navbar/footer height
+    min-height: calc(100vh - 120px);
     box-sizing: border-box;
-    overflow-x: hidden;  // Prevent any horizontal overflow
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    scroll-snap-type: y mandatory;
+  }
+  
+  .page-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
   }
   

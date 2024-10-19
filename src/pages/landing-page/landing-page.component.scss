@@ -1,46 +1,88 @@
 :host {
-    display: block;
-    overflow: hidden;  // Ensure no unintended overflow causes the scroll bar
-    box-sizing: border-box;  // Include padding and borders in the element's total width/height
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px);
+  width: 100vw;
+  background: #000000;
+  color: #ffffff;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.landing-content {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+  h1 {
+    font-size: 3rem;
   }
-  
-  .landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 100px);  // Adjust height to fit within the viewport minus navbar/footer height if fixed size
-    width: 100vw;
-    background: #000000;
-    color: #ffffff;
+
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
   }
-  
-  .landing-content {
-    text-align: center;
-  
-    h1 {
-      font-size: 3rem;
-    }
-  
-    p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
-  
-    button {
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      color: #000;
-      background-color: #ffffff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-  
-      &:hover {
-        background-color: #dddddd;
-        transform: scale(1.05);
-      }
+
+  button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: #000;
+    background-color: #3c45c38b;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #5a64f18b;
+      transform: scale(1.05);
     }
   }
-  
+}
+
+.highlighted-name {
+  color: #3c45c3;
+}
+
+.animated-highlight {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  color: #ffffff;
+  background-image: linear-gradient(90deg, #3c45c3 50%, #ffffff 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorFillGradient 3s ease forwards;
+
+  font-size: inherit;
+  line-height: inherit;
+}
+
+@keyframes colorFillGradient {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from 'src/shared/shared.module';
+import { PagesModule } from 'src/pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -11,9 +12,10 @@ import { SharedModule } from 'src/shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    PagesModule // Add PagesModule here so that its components are recognized
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

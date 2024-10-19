@@ -17,5 +17,11 @@ import { PagesRoutingModule } from './pages-routing.module';
     CommonModule,
     PagesRoutingModule
   ],
+  exports: [
+    LandingPageComponent,
+    AboutComponent,
+    ProjectsComponent,
+    ContactComponent
+  ]
 })
 export class PagesModule {}
