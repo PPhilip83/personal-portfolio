@@ -1,11 +1,18 @@
 :host {
+    display: block;
+    overflow: hidden;  // Ensure no unintended overflow causes the scroll bar
+    box-sizing: border-box;  // Include padding and borders in the element's total width/height
+  }
+  
+  .landing-page {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
+    height: calc(100vh - 100px);  // Adjust height to fit within the viewport minus navbar/footer height if fixed size
+    width: 100vw;
+    background: #000000;
+    color: #ffffff;
   }
   
   .landing-content {
